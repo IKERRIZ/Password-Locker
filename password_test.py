@@ -1,13 +1,13 @@
 import unittest 
-from password_locker import User, Credentials
+from password_locker import User 
 
-class TestUser(Unittest.TestCase):
+class TestUser(unittest.TestCase):
 
     #Test that defines test cases for the user class bevaviours
 
     def setUp(self):
 
-        #set up method to run before each test cases
+     #set up method to run before each test cases
 
         self.new_user = User("Ikerriz","Kpasloc11","ikerriz@gmail.com")
 
