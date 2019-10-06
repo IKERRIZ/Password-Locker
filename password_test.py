@@ -53,6 +53,7 @@ class TestCredentials(unittest.TestCase):
         set up method to run before each test cases
         """
         self.new_credential = Credentials("facebook","usher.junior", "usr24")
+        self.new_credential = Credentials("instagram","junior ashley", "547368")
 
     def test_init(self):
         """
@@ -62,6 +63,9 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_credential.account_name,"facebook")
         self.assertEqual(self.new_credential.account_username,"usher.junior")
         self.assertEqual(self.new_credential.account_password,"usr24")
+        self.assertEqual(self.new_credential.account_name,"instagram")
+        self.assertEqual(self.new_credential.account_username,"junior ashley")
+        self.assertEqual(self.new_credential.account_password,"547368")
 
 
 
