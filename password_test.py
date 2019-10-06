@@ -44,6 +44,27 @@ class TestUser(unittest.TestCase):
         self.assertEqual(User.test_display_users(),User.user_list)
 
 
+class TestCredentials(unittest.TestCase):
+    """
+    Test that define test cases for credentials.
+    """
+    def setUp(self):
+        """ 
+        set up method to run before each test cases
+        """
+        self.new_credential = Credentials("facebook","usher.junior", "usr24")
+
+    def test_init(self):
+        """
+        Test case to test if the object is initialized properly.
+        """
+
+        self.assertEqual(self.new_credential.account_name,"facebook")
+        self.assertEqual(self.new_credential.account_username,"usher.junior")
+        self.assertEqual(self.new_credential.account_password,"usr24")
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
