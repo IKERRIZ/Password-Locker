@@ -37,6 +37,11 @@ class TestUser(unittest.TestCase):
         test_user = User("Faith","0727995270","faith@gmail.com")
         test_user.user_save()
         self.assertEqual(len(User.user_list),2) 
+        self.assertEqual(len(User.user_list),2)
+
+
+    def test_display_users(self):
+        self.assertEqual(User.test_display_users(),User.user_list)
 
 
 
