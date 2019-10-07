@@ -48,7 +48,7 @@ class Credentials:
         '''
         Credential.credential_list.append(self)
 
-     @classmethod
+    @classmethod
     def display_credential(cls, user_name):
         '''
         function to diplay saved account
@@ -58,3 +58,10 @@ class Credentials:
             if credential.user_name == user_name:
                 user_credential_list.append(credential)
         return user_credential_list   
+    def generate_password (self,size=5, char=string.ascii_lowercase+string.ascii_uppercase+string.digits):
+            '''
+            function to generate random password
+            
+            '''
+            password_generate = "".join(random.choice(char) for _ in range(size))
+            return password_generate
