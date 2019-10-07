@@ -30,14 +30,14 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.user_list),1)
 
 class TestCredentials(unittest.TestCase):
-    """
-    Test that define test cases for credentials.
-    """
+        """
+        Test that define test cases for credentials.
+        """
     def check_user_exist(self):
-    '''
-    Method to test check user functionility
-    '''
-    self.new_user = User('faith','7995')
+        '''
+         Method to test check user functionility
+        '''
+        self.new_user = User('faith','7995')
         self.new_user.save_user()
         user2 = User('jane', 'abc301')
         user2.save_user()
@@ -46,6 +46,12 @@ class TestCredentials(unittest.TestCase):
                 current_user = user.firstname
         return current_user
         self.assertEqual(current_user, Credential.check_user_exist(user2.password, user2.firstname))
+    def setUp(self):
+        '''
+        Function to create an account's credentials before each test
+        '''
+        self.new_credential = Credential('twitter','faith','7995')
+
         
 
 
