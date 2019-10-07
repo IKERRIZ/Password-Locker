@@ -38,3 +38,8 @@ def generate_password():
     '''
     password_generate = Credential.generate_password
     return password_generate
+def display_credential(user_name):
+    '''
+    Function to display credentials
+    '''
+    return Credential.display_credential(user_name)
