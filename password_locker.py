@@ -26,11 +26,18 @@ class Credentials:
     user_credential_list = []
 
     @classmethod
-    def check_user_exist(cls,user_name,password)
-    '''
-    method to check if the user exist from user list
-    '''
-    for user in User.user_list:
+    def check_user_exist(cls,user_name,password):
+        '''
+        method to check if the user exist from user list
+        '''
+        for user in User.user_list:
             if user_name == user_name and user.password == password:
                 current_user =user_name
-        return current_user
+            return current_user
+    def __init__(self, account_name, user_name, password):
+        '''
+        method to define the properties for user object
+        '''
+        self.account_name = account_name
+        self.user_name = user_name
+        self. password = password
