@@ -33,17 +33,17 @@ class TestCredentials(unittest.TestCase):
         """
         Test that define test cases for credentials.
         """
-    def check_user_exist(self):
-        '''
-         Method to test check user functionility
-        '''
-        self.new_user = User('faith','7995')
-        self.new_user.save_user()
-        user2 = User('jane', 'abc301')
-        user2.save_user()
-        for user in User.user_list:
-            if user.firstname == user2.firstname and user.password == user2.password:
-                current_user = user.firstname
+def check_user_exist(self):
+    '''
+    Method to test check user functionility.
+    '''
+    self.new_user = User('faith','7995')
+    self.new_user.save_user()
+    user2 = User('jane', 'abc301')
+    user2.save_user()
+    for user in User.user_list:
+        if user.firstname == user2.firstname and user.password == user2.password:
+            current_user = user.firstname
         return current_user
         self.assertEqual(current_user, Credential.check_user_exist(user2.password, user2.firstname))
     def setUp(self):
@@ -51,9 +51,40 @@ class TestCredentials(unittest.TestCase):
         Function to create an account's credentials before each test
         '''
         self.new_credential = Credential('twitter','faith','7995')
+    def test__init__(self):
+        '''
+        test__init__ test case to test if the object is initialized properly
+        '''
+        self.assertEqual(self.new_credential.account_name,'twitter')
+        self.assertEqual(self.new_credential.user_name,'faith')
+        self.assertEqual(self.new_credential.password,'7995')
 
-        
+    def test_save_credential(self):
+        '''
+        Test to confirm if the new credential is saved to the credentials list
+        '''
+        self.new_credential.save_credential()
+        instagram = Credential('Instagram','faith','7995')
+        instagram.save_credential()
+        self.assertEqual(len(Credential.credential_list),9)
 
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        Credential.Credential_list = []
+        User.user_list = []
+
+     def test_display_credential(self):
+        '''
+        Test to check if credentials display method displays
+        '''
+        self.new_credential.save_credential()
+        instagram = Credential('Instagram','faith','7995')
+        instagram.save_credential()
+        facebook = Credential('Facebook','neymar','far785')
+        facebook.save_credential()
+        self.assertEqual(len(Credential.display_credential(instagram.user_name)), 2)
 
 
 
