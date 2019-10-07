@@ -86,6 +86,17 @@ def check_user_exist(self):
         facebook.save_credential()
         self.assertEqual(len(Credential.display_credential(instagram.user_name)), 2)
 
+     def test_find_by_account_name(self):
+        '''
+        Test method for finding a credential user_name
+        '''
+        self.new_credential.save_credential()
+        instagram = Credential('Instagram','faith','7995')
+        instagram.save_credential()
+        credential_exists = Credential.find_by_account_name('Instagram')
+    
+
+
 
 
 if __name__ == '__main__':
