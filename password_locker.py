@@ -65,3 +65,14 @@ class Credentials:
             '''
             password_generate = "".join(random.choice(char) for _ in range(size))
             return password_generate
+
+    @classmethod
+    def find_by_account_name(cls, account_name):
+        '''
+        Function that finds a credential based on the site_name
+        '''
+        for credential in cls.credential_list:
+            if credential.account_name ==  account_name:
+                return credential
+                
+
