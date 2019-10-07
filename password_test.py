@@ -1,5 +1,5 @@
 import unittest 
-from password_locker import User 
+from password_locker import User, Credentials
 
 class TestUser(unittest.TestCase):
 
@@ -10,6 +10,9 @@ class TestUser(unittest.TestCase):
      #set up method to run before each test cases
 
         self.new_user = User("Ikerriz","Kpasloc11","ikerriz@gmail.com")
+
+    def tearDown(self):
+        User.user_list = []
 
     def test_init(self):
 
@@ -26,46 +29,24 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.user_list),1)
 
-
-
-    def test_save_multiple_user(self):
-        '''
-        Test to check whether we can save multiple user objects.
-        '''
-        
-        self.new_user.user_save()
-        test_user = User("Faith","0727995270","faith@gmail.com")
-        test_user.user_save()
-        self.assertEqual(len(User.user_list),2) 
-        self.assertEqual(len(User.user_list),2)
-
-
-    def test_display_users(self):
-        self.assertEqual(User.test_display_users(),User.user_list)
-
-
 class TestCredentials(unittest.TestCase):
     """
     Test that define test cases for credentials.
     """
-    def setUp(self):
-        """ 
-        set up method to run before each test cases
-        """
-        self.new_credential = Credentials("facebook","usher.junior", "usr24")
-        self.new_credential = Credentials("instagram","junior ashley", "547368")
-
-    def test_init(self):
-        """
-        Test case to test if the object is initialized properly.
-        """
-
-        self.assertEqual(self.new_credential.account_name,"facebook")
-        self.assertEqual(self.new_credential.account_username,"usher.junior")
-        self.assertEqual(self.new_credential.account_password,"usr24")
-        self.assertEqual(self.new_credential.account_name,"instagram")
-        self.assertEqual(self.new_credential.account_username,"junior ashley")
-        self.assertEqual(self.new_credential.account_password,"547368")
+    def check_user_exist(self):
+    '''
+    Method to test check user functionility
+    '''
+    self.new_user = User('faith','7995')
+        self.new_user.save_user()
+        user2 = User('jane', 'abc301')
+        user2.save_user()
+        for user in User.user_list:
+            if user.firstname == user2.firstname and user.password == user2.password:
+                current_user = user.firstname
+        return current_user
+        self.assertEqual(current_user, Credential.check_user_exist(user2.password, user2.firstname))
+        
 
 
 
