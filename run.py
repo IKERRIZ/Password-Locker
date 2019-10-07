@@ -27,3 +27,14 @@ def create_credential(account_name,user_name,password):
     new_credential = Credential(account_name,user_name,password)
     return new_credential
 
+def save_credential(credential):
+    '''
+    Function to save a created credential
+    '''
+    Credential.save_credential(credential)
+def generate_password():
+    '''
+    Function to randomly generate password
+    '''
+    password_generate = Credential.generate_password
+    return password_generate
