@@ -48,3 +48,13 @@ class Credentials:
         '''
         Credential.credential_list.append(self)
 
+     @classmethod
+    def display_credential(cls, user_name):
+        '''
+        function to diplay saved account
+        '''
+        user_credential_list = []
+        for  credential in cls.credential_list:
+            if credential.user_name == user_name:
+                user_credential_list.append(credential)
+        return user_credential_list   
