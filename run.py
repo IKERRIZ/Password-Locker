@@ -43,3 +43,10 @@ def display_credential(user_name):
     Function to display credentials
     '''
     return Credential.display_credential(user_name)
+
+def copy_credential(account_name):
+    '''
+    Function to copy a credential to the clipboard
+    '''
+    return Credential.copy_credential(account_name)
+
