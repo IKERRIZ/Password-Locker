@@ -3,15 +3,16 @@ import string
 
 
 
+
 class User:
 
  #Class that generates new instances of the user
 
   user_list = [] # empty list
-  def __init__(self, user_name, password, email):
+  def __init__(self, user_name, password):
       self.user_name = user_name
       self.password = password
-      self.email = email
+
 
   def user_save(self):
        '''
@@ -46,7 +47,7 @@ class Credentials:
         '''
         a method  to save user object to user_list
         '''
-        Credential.credential_list.append(self)
+        Credentials.credential_list.append(self)
 
     @classmethod
     def display_credential(cls, user_name):
@@ -74,13 +75,13 @@ class Credentials:
         for credential in cls.credential_list:
             if credential.account_name ==  account_name:
                 return credential
-    @classmethod
-    def copy_credential(cls,account_name):
-        '''
-        Function that copies a credential
-        '''
-        find_credential = Credential.find_by_account_name(account_name)
-        return pyperclip.copy(find_credential.password)
+    # @classmethod
+    # def copy_credential(cls,account_name):
+    #     '''
+    #     Function that copies a credential
+    #     '''
+    #     find_credential = Credentials.find_by_account_name(account_name)
+    #     return pyperclip.copy(find_credential.password)
     
 
                 
