@@ -13,8 +13,8 @@ An application that allows us to generate and store passwords for various accoun
 ### Behaviours
 |Behaviour   | Input    | Output  |
 |------------|----------|---------|
-|Create user account | User_name and password|Hello faith, your account has been created succesfully|
-|Display input prompt for login|User_name and password| You have successfully logged in. Choose short code to continue|
+|Create user account | User_name and password|Your password-locker (name)  and (password)|
+|Display input prompt for login|User_name and password| Welcome (name) successfully logged in. Choose short code to continue|
 |Display codes for credentials |Successfully logged in|Select short code: ccd - create credential, dc - display Credentials, dl - delete credential, cp - copy credential, ex - exit|
 |Display input prompt for creating a credential|Type in ccd short code and enter the site name, site-account username and password|Displays the site name, site-account-username and password|
 |Display a list of credentials| Type dc short code |Displays a list of saved account credentials|
