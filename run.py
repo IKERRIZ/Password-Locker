@@ -1,8 +1,8 @@
-# !/usr/bin/env python3.6
+#!/usr/bin/env python3.6
 from password_locker import User, Credentials
 
 
-def create_new_user(firstname, password):
+def create_user(firstname, password):
     '''
     Function to create a new user
     '''
@@ -67,7 +67,7 @@ def main():
            print('To create a new account:')
            firstname = input('Choose a firstname - ').strip()
            password = input('Choose a password - ').strip()
-           save_user(create_user(firstname,password))
+           user_save(create_user(firstname,password))
            print(" ")
            print(f'Your Password-Locker account firstname is : {firstname}  and password is: {(password)}')
        elif short_code == 'log':
