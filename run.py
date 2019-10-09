@@ -33,12 +33,29 @@ def save_credential(credential):
     Function to save a created credential
     '''
     Credentials.save_credential(credential)
+def delete_credential(credential):
+    '''
+    Function that deletes credentials
+    '''
+    credential.delete_credential()
+def check_credential_exist(account_name):
+    '''
+    Function that checks if a credential account exist
+    '''
+    return Credentials.credential_exist(account_name)
+
 def generate_password():
     '''
     Function to randomly generate password
     '''
     password_generate = Credentials.generate_password
     return password_generate
+
+def find_by_account_name( account_name):
+
+    return Credentials.find_by_account_name(account_name)
+
+
 def display_credential(user_name):
     '''
     Function to display credentials
@@ -83,7 +100,7 @@ def main():
                print(' ')
                while True:
                    print("-"*40)
-                   print('Your credentials short codes: c-Create credential, d-Display Credentials, p-Copy Password, ex-Exit')
+                   print('Your credentials short codes: c-Create credential, d-Display Credentials, dc-Delete Credential, ex-Exit')
                    short_code = input('Enter short code: ').lower().strip()
                    print("-"*40)
                    if short_code == 'ex':
@@ -129,13 +146,13 @@ def main():
                            print(' ')
                            print("No credential saved")
                            print(' ')
-                   elif short_code == 'p':
+                   elif short_code == 'dc':
                        print(' ')
-                       chosen_account_name = input('Enter the account name for the credential password to copy: ')
-                       copy_credential(chosen_account_name)
+                       chosen_account_name = input('Enter the account name for the credential  account you want to delete: ')
+                       if check_credential_exist(chosen_account_name):
+                           delete_credential(find_by_account_name(chosen_account_name))
                        print('')
-                       print('Paste copied account_name password here:')
-                       copy = input()
+                       print('Your credential {chosen_account_name} has been deleted succeessfully:')
                    else:
                        print('Incorrect entry.Try again.')
            else:
